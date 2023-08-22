@@ -1,0 +1,17 @@
+[core]
+	autocrlf = input
+	editor = vim
+[diff]
+  tool = default-difftool
+[difftool "default-difftool"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[user]
+	name = Petri Hänninen
+	email = hello@petrihanninen.com
+[help]
+	autocorrect = 1
+[init]
+  templateDir = ~/.config/git/template/
+	defaultBranch = main
+[pull]
+	rebase = true

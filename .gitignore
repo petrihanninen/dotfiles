@@ -1,0 +1,8 @@
+.DS_Store
+
+# Credentials etc
+.env
+.aws/credentials
+.config/gh/hosts.yml
+
+zsh/ignored.zsh
