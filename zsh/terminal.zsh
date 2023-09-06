@@ -80,6 +80,9 @@ ssh-csv() {
   ssh $1@$2 -i $3 "psql -d $4 -h $5 -U $6 -c \"COPY ($7) TO STDOUT WITH CSV DELIMITER ';' HEADER\""
 }
 
+# Fix Kitty ssh
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 # Ngrok
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"

@@ -16,6 +16,7 @@ brew install fd
 brew install trash
 
 # Fancy CLI stuff
+brew install --cask kitty
 brew install tmux
 brew install neovim
 
