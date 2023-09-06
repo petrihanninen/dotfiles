@@ -20,6 +20,10 @@ brew install --cask kitty
 brew install tmux
 brew install neovim
 
+# Nvim
+# Packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # Devving
 brew install colima docker docker-compose docker-buildx direnv kubectl
 brew install awscli
