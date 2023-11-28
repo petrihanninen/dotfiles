@@ -62,7 +62,11 @@ alias dps="docker ps"
 
 
 # Colima
-alias clm="colima start --cpu 4 --memory 8"
+alias clm="colima "
+alias clms="clm start "
+alias clmsp="clm stop "
+alias clmsf="clmsp --force "
+alias clmr="clm restart "
 
 
 # Preferred editor
@@ -87,4 +91,7 @@ ssh-csv() {
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
+
+# Rust
+export PATH="$PATH:/Users/petrihanninen/.cargo/bin"
 

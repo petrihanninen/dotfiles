@@ -18,4 +18,3 @@ vim.opt.undofile = true
 vim.opt.hlsearch = true
 
 -- UI
-vim.opt.colorcolumn = "80"
