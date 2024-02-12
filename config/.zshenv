@@ -42,4 +42,9 @@ fi
 
 . "$Z4H"/z4h.zsh || return
 
+for f in $HOME/dotfiles/zsh/env/*.zsh; do
+  z4h source $f
+done
+
+
 setopt rcs

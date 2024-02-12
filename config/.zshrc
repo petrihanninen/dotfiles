@@ -101,3 +101,15 @@ alias ls="${aliases[ls]:-ls} -A"
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
+eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/petrihanninen/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+[[ -s "/Users/petrihanninen/.gvm/scripts/gvm" ]] && source "/Users/petrihanninen/.gvm/scripts/gvm"

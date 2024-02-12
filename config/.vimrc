@@ -3,6 +3,7 @@ set nocompatible
 syntax on
 
 set noerrorbells
+set rnu
 
 set tabstop=2 softtabstop=2
 set shiftwidth=2

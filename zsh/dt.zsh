@@ -1,6 +1,6 @@
 # This file contains shortcuts for the common operations while working with Duunitori codebases
 
-file_location="~/code/dt"
+file_location="$HOME/code/dt"
 dt5="$file_location/duunitori5"
 dta="$file_location/dt5admin"
 dtn="$file_location/duunitori-next"
@@ -58,3 +58,31 @@ function grt() {
   fi
 }
 
+function dtdev() {
+  cd $file_location
+  s="dt"
+
+
+  # Attach if session already exists
+  if [ $(tmux list-sessions | awk '{print $1}') = "$s:" ]; then
+    tmux attach -t $s
+    return
+  fi
+
+  tmux new-session -d -s $s
+
+  # duunitori5
+  tmux new-window -t $s "duunitori5" -c $dt5
+
+  # dt5admin
+  tmux new-window -t $s "dt5admin" -c $dta
+
+  # jobbland-frontend
+  tmux new-window -t $s "jobbland-frontend" -c $dtj
+
+  # next
+  tmux new-session -t $s "duunitori-next" -c $dtn
+
+  # duunitori-backend
+  tmux new-window -t $s "duunitori-backend" -c $dtb
+}

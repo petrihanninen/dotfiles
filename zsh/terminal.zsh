@@ -55,26 +55,12 @@ c() {
 alias p="python3"
 
 
-# Docker
-alias dp="docker ps --format \"table {{.Names}}\t{{.Status}}\""
-alias dpp="docker ps --format \"table {{.Names}}\t{{.Status}}\t{{.Ports}}\""
-alias dps="docker ps"
-
-
-# Colima
-alias clm="colima "
-alias clms="clm start "
-alias clmsp="clm stop "
-alias clmsf="clmsp --force "
-alias clmr="clm restart "
-
-
 # Preferred editor
 EDITOR="nvim"
 GITHUB_EDITOR=$EDITOR
 
 # Neovim aliases
-alias nv="nvim "
+alias v="nvim . "
 alias vim="nvim "
 
 
