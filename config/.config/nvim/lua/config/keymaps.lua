@@ -6,3 +6,7 @@
 local map = vim.api.nvim_set_keymap
 map("n", "<M-=>", "<C-a>", {})
 map("n", "<M-->", "<C-x>", {})
+
+-- Scroll down and up keeping the cursor in the same position
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
