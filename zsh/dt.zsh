@@ -59,6 +59,7 @@ function grt() {
 }
 
 function dtdev() {
-  ~/code/dt/session.sh
+  cd $HOME/code/dt
+  $HOME/dotfiles/session.sh
   tmux attach-session -t duunitori
 }
