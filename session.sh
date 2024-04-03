@@ -5,12 +5,10 @@ cd "$HOME/code/dt"
 
 tmux new-session -d -s $s
 
-# Jobbland
+# Dotfiles
 w=0
-tmux new-window -t $s:$w -n "jobbland"
-tmux send-keys -t $s:$w "cdj; v" C-m
-tmux split-window -h -t $s:$w
-tmux send-keys -t $s:$w "cdj" C-m
+tmux rename-window -t $s:$w "dotfiles"
+tmux send-keys -t $s:$w "cd $HOME/dotfiles; v" C-m
 
 # Next
 w=1
@@ -36,8 +34,24 @@ tmux new-window -t $s:$w -n "duunitori5"
 tmux send-keys -t $s:$w "cdt; v" C-m
 tmux split-window -ht $s:$w
 tmux send-keys -t $s:$w "cdt; dcu; dp" C-m
-tmux split-window -vft $s:$w
-tmux send-keys -t $s:$w "cdt; cd ../duunitori-kubernetes; v" C-m
-tmux split-window -vft $s:$w
-tmux send-keys -t $s:$w "cdt; cd ../duunitori-terraform; v" C-m
-tmux select-layout -t $s:$w main-vertical
+
+# Jobbland
+w=4
+tmux new-window -t $s:$w -n "jobbland"
+tmux send-keys -t $s:$w "cdj; v" C-m
+tmux split-window -h -t $s:$w
+tmux send-keys -t $s:$w "cdj" C-m
+
+# Duunitori misc
+w=5
+tmux new-window -t $s:$w -n "duunitori-misc"
+tmux send-keys -t $s:$w "cd duunitori-kubernetes; v" C-m
+tmux split-window -ht $s:$w
+tmux send-keys -t $s:$w "cd duunitori-terraform; v" C-m
+
+# DWH
+w=6
+tmux new-window -t $s:$w -n "dwh"
+tmux send-keys -t $s:$w "cd duunitori-warehouse; v" C-m
+tmux split-window -ht $s:$w
+tmux send-keys -t $s:$w "cd ga-jobentry-analytics; v" C-m

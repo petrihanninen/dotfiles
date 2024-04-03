@@ -7,6 +7,7 @@ dtn="$file_location/duunitori-next"
 dtb="$file_location/duunitori-backend"
 dtj="$file_location/jobbland-frontend"
 
+alias cdc="cd $file_location "
 alias cdt="cd $dt5 "
 alias cdta="cd $dta "
 alias cdn="cd $dtn "
