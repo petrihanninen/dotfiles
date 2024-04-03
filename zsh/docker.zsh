@@ -18,3 +18,12 @@ alias clmsf="clmsp --force "
 alias clmr="clm restart "
 
 
+# Clean everything
+function docker-clean-all() {
+  docker stop `docker ps -qa` > /dev/null
+  docker rm `docker ps -qa` > /dev/null
+  docker rm -f `docker images -qa` > /devnull
+  docker volume rm $(docker volume ls -q) > /devnull
+  docker network rm `docker network ls -q` > /devnull
+}
+
