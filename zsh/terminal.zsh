@@ -90,3 +90,7 @@ td() {
   sed -i '' "1s/.*/import = [\"~\/.config\/alacritty\/themes\/themes\/gruvbox.toml\"]/" $HOME/dotfiles/config/.alacritty.toml
 }
 
+# Tmux
+function tsp() {
+  tmux swap-pane -s $1 -t $2
+}
