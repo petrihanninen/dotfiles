@@ -13,3 +13,7 @@ map("n", "<C-f>", "<C-f>zz", {})
 map("n", "<C-u>", "<C-u>zz", {})
 map("n", "<C-d>", "<C-d>zz", {})
 
+-- toggle dark theme and light theme
+map("n", "<leader>td", ":set background=dark<cr>", { desc = "Dark theme" })
+map("n", "<leader>tl", ":set background=light<cr>", { desc = "Light theme" })
+
