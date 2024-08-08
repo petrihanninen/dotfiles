@@ -81,3 +81,12 @@ fi
 # Rust
 export PATH="$PATH:/Users/petrihanninen/.cargo/bin"
 
+# Toggle dark mode
+tl() {
+  sed -i '' "1s/.*/import = [\"~\/.config\/alacritty\/themes\/themes\/gruvbox_material_hard_light.toml\"]/" $HOME/dotfiles/config/.alacritty.toml
+}
+
+td() {
+  sed -i '' "1s/.*/import = [\"~\/.config\/alacritty\/themes\/themes\/gruvbox.toml\"]/" $HOME/dotfiles/config/.alacritty.toml
+}
+
