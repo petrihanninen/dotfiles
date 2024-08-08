@@ -17,3 +17,4 @@ map("n", "<C-d>", "<C-d>zz", {})
 map("n", "<leader>td", ":set background=dark<cr>", { desc = "Dark theme" })
 map("n", "<leader>tl", ":set background=light<cr>", { desc = "Light theme" })
 
+map("n", "<leader>yy", "^y$", { desc = "Yank line without indentation" })
