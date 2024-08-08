@@ -22,8 +22,12 @@ alias clmr="clm restart "
 function docker-clean-all() {
   docker stop `docker ps -qa` > /dev/null
   docker rm `docker ps -qa` > /dev/null
-  docker rm -f `docker images -qa` > /devnull
-  docker volume rm $(docker volume ls -q) > /devnull
-  docker network rm `docker network ls -q` > /devnull
+  docker rm -f `docker images -qa` > /dev/null
+  docker volume rm $(docker volume ls -q) > /dev/null
+  docker network rm `docker network ls -q` > /dev/null
 }
 
+# Kubectl
+alias kp="kubectl config use-context REDACTED_EKS_PROD_ARN"
+alias kt="kubectl config use-context REDACTED_EKS_TEST_ARN"
+alias kc="kubectl config get-contexts"
