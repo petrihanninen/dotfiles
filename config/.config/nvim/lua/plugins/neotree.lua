@@ -4,7 +4,16 @@ return {
   branch = "v3.x",
   opts = {
     filesystem = {
-      visible = true,
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_gitignore = true,
+        alway_show = {
+          "custom_settings.py",
+        },
+        always_show_by_pattern = {
+          ".env*",
+        },
+      },
     },
   },
 }
