@@ -58,9 +58,19 @@ function grt() {
     git stash pop
   fi
 }
+function dtt() {
+  cdc
+  tmux
+}
 
-function dtdev() {
-  cd $HOME/code/dt
-  $HOME/dotfiles/session.sh
+function dt() {
+  cdc
+
+  if [[ $# -eq 0 ]]; then
+    return
+  fi
+
+  $HOME/dotfiles/session-$1.sh
   tmux attach-session -t duunitori
 }
+
