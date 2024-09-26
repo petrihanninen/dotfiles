@@ -91,6 +91,27 @@ td() {
 }
 
 # Tmux
-function tsp() {
-  tmux swap-pane -s $1 -t $2
+# Session
+function ts() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: ts <cmd>"
+    exit 1
+  fi
+
+  if [[ $1 == "k" ]]; then
+    tmux kill-session -t $2
+  fi
 }
+
+# Pane
+function tp() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: ts <cmd>"
+    exit 1
+  fi
+
+  if [[ $1 == "s" ]]; then
+    tmux swap-pane -s $2 -t $3
+  fi
+}
+
