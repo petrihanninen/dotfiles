@@ -41,16 +41,6 @@ function logger() {
 }
 
 
-# Open VSCode
-c() {
-  if [ "$1" ]; then
-    code $1
-  else
-    code .
-  fi
-}
-
-
 # Python
 alias p="python3"
 
@@ -64,15 +54,6 @@ alias v="nvim . "
 alias vim="nvim "
 
 
-# Download data as csv over ssh
-# Usage: ssh-csv <ssh user> <ssh host> <ssh private key> <db name> <db host> <db user> <query>
-ssh-csv() {
-  ssh $1@$2 -i $3 "psql -d $4 -h $5 -U $6 -c \"COPY ($7) TO STDOUT WITH CSV DELIMITER ';' HEADER\""
-}
-
-# Fix Kitty ssh
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
-
 # Ngrok
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
@@ -81,7 +62,7 @@ fi
 # Rust
 export PATH="$PATH:/Users/petrihanninen/.cargo/bin"
 
-# Toggle dark mode
+# Toggle dark/light mode
 tl() {
   sed -i '' "1s/.*/import = [\"~\/.config\/alacritty\/themes\/themes\/gruvbox_material_hard_light.toml\"]/" $HOME/dotfiles/config/.alacritty.toml
 }
