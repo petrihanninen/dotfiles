@@ -18,18 +18,24 @@ tmux send-keys -t $s:$w "v" C-m
 
 # Backend
 w=2
-tmux new-window -t $s:$w -n "backend"
+tmux new-window -t $s:$w -n "no backend"
 tmux send-keys -t $s:$w "cdb" C-m
 tmux send-keys -t $s:$w "v" C-m
 
 # Duunitori5
 w=3
-tmux new-window -t $s:$w -n "duunitori5"
+tmux new-window -t $s:$w -n "fi"
 tmux send-keys -t $s:$w "cdt" C-m
 tmux send-keys -t $s:$w "v" C-m
 
 # Jobbland
 w=4
-tmux new-window -t $s:$w -n "jobbland"
+tmux new-window -t $s:$w -n "se"
 tmux send-keys -t $s:$w "cdj" C-m
+tmux send-keys -t $s:$w "v" C-m
+
+# duunitori-kubernetes
+w=5
+tmux new-window -t $s:$w -n "kube"
+tmux send-keys -t $s:$w "cd duunitori-kubernetes" C-m
 tmux send-keys -t $s:$w "v" C-m
