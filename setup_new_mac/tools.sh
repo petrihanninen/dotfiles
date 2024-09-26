@@ -30,14 +30,11 @@ nvm install 20
 # Other Apps
 brew install --cask clipy
 brew install --cask figma
-brew install --cask fluor
 brew install --cask itsycal
 brew install --cask jukebox
 brew install --cask rectangle
 brew install --cask spotify
-brew install --cask steam
 brew install --cask tomatobar
 brew install --cask visual-studio-code
-brew install --cask whatsapp
 brew install --cask zoom
 
