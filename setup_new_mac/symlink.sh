@@ -4,8 +4,8 @@ link() {
 }
 
 mkdir "$HOME/config"
-link config/gh
-link config/nvim
+
+link .alacritty.toml
 link .gitconfig
 link .gitignore_global
 link .npmrc
@@ -14,6 +14,3 @@ link .tmux.conf
 link .vimrc
 link .zshenv
 link .zshrc
-
-
-
