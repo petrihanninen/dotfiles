@@ -78,3 +78,10 @@ function dtexec() {
   container=$(docker ps -f name="duunitori5-dev-run" --format {{.ID}})
   docker exec -it $container "$@"
 }
+
+alias sdb="$HOME/dotfiles/session-db.sh"
+alias sdk="$HOME/dotfiles/session-dk.sh"
+alias sdn="$HOME/dotfiles/session-dn.sh"
+alias sdot="$HOME/dotfiles/session-dot.sh"
+alias sdt="$HOME/dotfiles/session-dt.sh"
+alias sjl="$HOME/dotfiles/session-jl.sh"
