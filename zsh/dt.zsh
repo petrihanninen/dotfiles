@@ -74,5 +74,7 @@ function dt() {
   tmux attach-session -t duunitori
 }
 
-
-alias dtexec="docker exec -it $(docker ps -f name="duunitori5-dev-run" --format {{.ID}})"
+function dtexec() {
+  container=$(docker ps -f name="duunitori5-dev-run" --format {{.ID}})
+  docker exec -it $container "$@"
+}
