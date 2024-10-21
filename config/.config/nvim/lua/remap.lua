@@ -97,6 +97,31 @@ vim.keymap.set("n", "|", "<cmd>cprev<CR>zz", { desc = "Next Quickfix list item" 
 vim.keymap.set("n", "\\", "<cmd>cnext<CR>zz", { desc = "Prev Quickfix list item" })
 vim.keymap.set("n", "<leader>qq", "<cmd>cclose<CR>", { desc = "Quickfix Quit" })
 
+vim.keymap.set("n", "<leader>vn", ":Telescope notify<CR>", { desc = "Vim Notifications" })
+
+-- Allow enabling and disabling auto-format
+vim.api.nvim_create_user_command("FormatDisable", function()
+  vim.b.disable_autoformat = true
+end, {
+  desc = "Disable format on save",
+})
+
+vim.api.nvim_create_user_command("FormatEnable", function()
+  vim.b.disable_autoformat = false
+end, {
+  desc = "Enable format on save",
+})
+
+vim.api.nvim_create_user_command("FormatToggle", function()
+  vim.b.disable_autoformat = not vim.b.disable_autoformat
+  if vim.b.disable_autoformat then
+    vim.notify("Format on save disabled")
+  else
+    vim.notify("Format on save enabled")
+  end
+end, {
+  desc = "Toggle format on save",
+})
 
 
 autocmd("filetype", {
@@ -114,6 +139,30 @@ autocmd("filetype", {
   end,
 })
 
+autocmd("BufWritePre", {
+  group = p3AutoGroup,
+  pattern = "*",
+  desc = "Format code on save",
+  callback = function()
+    if not vim.b.disable_autoformat then
+      vim.lsp.buf.format()
+    end
+  end,
+})
+
+autocmd("BufWritePost", {
+  group = p3AutoGroup,
+  pattern = "*",
+  desc = "Notify about formatting",
+  callback = function()
+    if vim.b.disable_autoformat then
+      vim.notify("File saved without formatting", "warn")
+    else
+      vim.notify("File formatted and saved")
+    end
+  end,
+})
+
 autocmd('TextYankPost', {
   group = p3AutoGroup,
   pattern = '*',
@@ -125,3 +174,50 @@ autocmd('TextYankPost', {
   end,
 })
 
+autocmd("LspAttach", {
+  group = p3AutoGroup,
+  callback = function(e)
+    local opts = { buffer = e.buf }
+
+    vim.keymap.set("n", "K", function()
+      vim.lsp.buf.hover()
+    end, opts, { desc = "Hover info" })
+
+    -- Code Symbols
+    vim.keymap.set("n", "gd", function()
+      vim.lsp.buf.definition()
+    end, opts, { desc = "Go to Definition" })
+    vim.keymap.set("n", "gt", function()
+      vim.lsp.buf.type_definition()
+    end, opts, { desc = "Go to Type definition" })
+    vim.keymap.set("n", "gr", function()
+      vim.lsp.buf.references()
+    end, opts, { desc = "Go to References" })
+    vim.keymap.set("n", "<leader>cs", builtin.lsp_document_symbols, { desc = "Code Symbols" })
+
+    -- Diagnostics
+    vim.keymap.set("n", "[d", function()
+      vim.diagnostic.goto_next()
+    end, opts, { desc = "Next Diagnostics" })
+    vim.keymap.set("n", "]d", function()
+      vim.diagnostic.goto_prev()
+    end, opts, { desc = "Prev Diagnostics" })
+
+    -- Code actions
+    vim.keymap.set({ "n", "v" }, "<leader>ca", function()
+      vim.lsp.buf.code_action()
+    end, opts, { desc = "Code Actions" })
+    vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
+    vim.keymap.set("n", "<leader>cF", ":FormatToggle<CR>", { desc = "Toggle format on save" })
+
+    -- Misc
+    vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Code Mason: open" })
+    vim.keymap.set("n", "<leader>ci", "<cmd>LspInfo<CR>", { desc = "Code Info (LSP)" })
+
+    -- Some keymaps from primeagen to check out
+    -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts, { desc = "" })
+    -- vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts, { desc = "" })
+    -- vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts, { desc = "" })
+    -- vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts, { desc = "" })
+  end,
+})
