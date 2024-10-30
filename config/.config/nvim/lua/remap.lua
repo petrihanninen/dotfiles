@@ -162,3 +162,14 @@ autocmd("filetype", {
   end,
 })
 
+autocmd('TextYankPost', {
+  group = p3AutoGroup,
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'IncSearch',
+      timeout = 50,
+    })
+  end,
+})
+
