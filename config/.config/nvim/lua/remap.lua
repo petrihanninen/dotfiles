@@ -68,6 +68,14 @@ vim.keymap.set("n", "<leader>gt", builtin.git_stash, { desc = "Git sTash" })
 vim.keymap.set("n", "<leader>ss", builtin.live_grep, { desc = "Search" })
 
 
+-- No Neck Pain
+vim.keymap.set("n", "<leader>nn", "<cmd>NoNeckPain<CR>", { desc = "No Neck pain" })
+vim.keymap.set("n", "<leader>nf", "<cmd>NoNeckPainWidthUp<CR>", { desc = "No neck pain width up" })
+vim.keymap.set("n", "<leader>nd", "<cmd>NoNeckPainWidthDown<CR>", { desc = "No neck pain width Down" })
+vim.keymap.set("n", "<leader>ns", "<cmd>NoNeckPainResize 130<CR>", { desc = "No neck pain reset wide" })
+vim.keymap.set("n", "<leader>na", "<cmd>NoNeckPainResize 100<CR>", { desc = "No neck pain reset narrow" })
+
+
 -- Misc
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Chmod +x" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Squash line below" })
