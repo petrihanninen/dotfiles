@@ -2,12 +2,15 @@ local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local p3AutoGroup = augroup("p3", {})
 
+
 -- Increment & Decrement
 vim.keymap.set("n", "<M-=>", "<C-a>", { desc = "++" })
 vim.keymap.set("n", "<M-->", "<C-x>", { desc = "--" })
 
+
 -- Navigation
 vim.keymap.set("n", "<Backspace>", "<C-o>", { desc = "Go to previous location" })
+
 
 -- Better scrolling: always keep cursor in the middle
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll down" })
@@ -25,11 +28,14 @@ vim.keymap.set("n", "G", "Gzz", { desc = "Bottom of file" })
 vim.keymap.set("n", "gj", "gjzz", { desc = "?" })
 vim.keymap.set("n", "gk", "gkzz", { desc = "?" })
 
+
 -- Move lines up and down
-vim.keymap.set("v", "<leader>j", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-vim.keymap.set("n", "<leader>j", "mzyyjp`z2jmz2kdd`z", { desc = "Move line down" })
-vim.keymap.set("v", "<leader>k", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
-vim.keymap.set("n", "<leader>k", "mzyykP`z2kmz2jdd`z", { desc = "Move line up" })
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gvzz", { desc = "Move line down" })
+vim.keymap.set("n", "<C-j>", "mzyyjp`z2jmz2kdd`zzz", { desc = "Move line down" })
+
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gvzz", { desc = "Move line up" })
+vim.keymap.set("n", "<C-k>", "mzyykP`z2kmz2jdd`zzz", { desc = "Move line up" })
+
 
 -- Copy & Paste
 vim.keymap.set("x", "<leader>p", [["_dp]], { desc = "Paste without rewriting buffer" })
@@ -37,6 +43,7 @@ vim.keymap.set("n", "<leader>p", [["+p]], { desc = "Paste after from system clip
 vim.keymap.set("n", "<leader>P", [["+P]], { desc = "Paste before from system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>y<leader>", "^y$", { desc = "Yank line without indentation" })
+
 
 -- TELESCOPE
 -- Files
@@ -48,6 +55,7 @@ vim.keymap.set("n", "<leader>fF", builtin.find_files, { desc = "Files: all (full
 vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Files: Git" })
 vim.keymap.set("n", "<leader>fe", vim.cmd.Ex, { desc = "File Explore" })
 
+
 -- Git
 vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })
 vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits" })
@@ -55,12 +63,15 @@ vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches" 
 vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git Status" })
 vim.keymap.set("n", "<leader>gt", builtin.git_stash, { desc = "Git sTash" })
 
+
 -- Search
 vim.keymap.set("n", "<leader>ss", builtin.live_grep, { desc = "Search" })
+
 
 -- Misc
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Chmod +x" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Squash line below" })
+
 
 -- Vim
 vim.keymap.set("n", "<leader>vv", function()
@@ -133,3 +144,4 @@ autocmd("filetype", {
     bind("<Backspace>", "-", { desc = "Go up dir" })
   end,
 })
+
