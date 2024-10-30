@@ -86,6 +86,7 @@ vim.keymap.set("n", "<leader>vv", function()
   vim.cmd("so")
 end, { desc = "Shoutout" })
 vim.keymap.set("n", "<leader>vq", "<cmd>qall<CR>", { desc = "Vim Quit" })
+vim.keymap.set("n", "<leader>vn", "<cmd>Telescope notify<CR>", { desc = "Vim Notifications" })
 -- Quickfix list
 vim.keymap.set("n", "]q", "<cmd>cprev<CR>zz", { desc = "Next Quickfix list item" })
 vim.keymap.set("n", "[q", "<cmd>cnext<CR>zz", { desc = "Prev Quickfix list item" })
