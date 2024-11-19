@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>nn", "<cmd>NoNeckPain<CR>", { desc = "No Neck pain" })
+vim.keymap.set("n", "<leader>nf", "<cmd>NoNeckPainWidthUp<CR>", { desc = "No neck pain width up" })
+vim.keymap.set("n", "<leader>nd", "<cmd>NoNeckPainWidthDown<CR>", { desc = "No neck pain width Down" })
+vim.keymap.set("n", "<leader>ns", "<cmd>NoNeckPainResize 130<CR>", { desc = "No neck pain reset wide" })
+vim.keymap.set("n", "<leader>na", "<cmd>NoNeckPainResize 100<CR>", { desc = "No neck pain reset narrow" })

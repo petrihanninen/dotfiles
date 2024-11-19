@@ -1,0 +1,5 @@
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>zz", { desc = "Next Quickfix list item" })
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>zz", { desc = "Prev Quickfix list item" })
+vim.keymap.set("n", "|", "<cmd>cprev<CR>zz", { desc = "Next Quickfix list item" })
+vim.keymap.set("n", "\\", "<cmd>cnext<CR>zz", { desc = "Prev Quickfix list item" })
+vim.keymap.set("n", "<leader>qq", "<cmd>cclose<CR>", { desc = "Quickfix Quit" })
