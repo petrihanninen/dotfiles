@@ -10,5 +10,6 @@ Autocmd("filetype", {
     bind("a", "%", { desc = "Add file" })
     bind("r", "R", { desc = "Rename file" })
     bind("<Backspace>", "-", { desc = "Go up dir" })
+    bind("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Chmod +x" })
   end,
 })
