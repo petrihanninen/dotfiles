@@ -3,11 +3,6 @@ export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
 
-# Default rm to throwing things to trash, use del for immediate nuke
-alias del='rm '
-alias rm='trash '
-
-
 # Make a directory and cd into it
 function mkcd() {
   mkdir -p $1

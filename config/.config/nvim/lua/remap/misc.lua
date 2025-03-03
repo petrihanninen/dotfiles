@@ -2,10 +2,6 @@
 vim.keymap.set("n", "<Backspace>", "<C-o>", { desc = "Go to previous location" })
 
 
--- Bash
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Chmod +x" })
-
-
 -- Vim
 vim.keymap.set("n", "<leader>vv", function()
   vim.cmd("so")
