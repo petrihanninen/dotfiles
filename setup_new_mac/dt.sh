@@ -11,11 +11,13 @@ mkcd "$HOME/code"
 mkcd dt
 
 # Main repos
+c duunitori5
 c duunitori-next
 c duunitori-backend
-c duunitori5
 c jobbland-frontend
 c duunitori-kubernetes
+
+# Handbook
 c handbook
 
 # Additional repos
@@ -29,3 +31,4 @@ c duunitori-backend-terraform
 # Strapi
 c jobbland-se-strapi
 c jobbsafari-no-strapi
+c dtx-strapi
