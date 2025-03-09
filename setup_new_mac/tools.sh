@@ -1,5 +1,17 @@
 #!/bin/zsh
 
+# Homebrew
+# Install homebrew
+echo "Installing homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add to path
+(
+  echo
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+) >>/Users/petrihanninen/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Git
 brew install gh
 
@@ -10,6 +22,7 @@ brew install trash
 brew install wget
 brew install jq
 brew install gnu-sed
+brew install gpg
 
 # Fancy CLI stuff
 brew install --cask alacritty
