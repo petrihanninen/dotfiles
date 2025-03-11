@@ -50,4 +50,5 @@ brew install --cask spotify
 brew install --cask tomatobar
 brew install --cask visual-studio-code
 brew install --cask zoom
+brew install raycast
 
