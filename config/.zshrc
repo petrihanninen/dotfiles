@@ -104,12 +104,17 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 eval "$(direnv hook zsh)"
 eval "$(direnv hook zsh)"
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bas_competion.d/nvm" ] && "/usr/local/opt/nvm/etc/bas_competion.d/nvm" 
+
 # pnpm
-export PNPM_HOME="/Users/petrihanninen/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-[[ -s "/Users/petrihanninen/.gvm/scripts/gvm" ]] && source "/Users/petrihanninen/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
