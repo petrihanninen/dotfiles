@@ -9,3 +9,5 @@ zsh/ignored.zsh
 
 # Google Cloud crap
 config/.config/gcloud
+
+htoprc
