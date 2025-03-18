@@ -43,4 +43,6 @@ brew install awscli
 # Other Apps
 brew install spotify
 brew install raycast
+brew install zen-browser
+brew install google-chrome
 
