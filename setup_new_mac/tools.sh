@@ -47,3 +47,7 @@ brew install raycast
 brew install zen-browser
 brew install google-chrome
 
+
+brew install font-fira-code
+brew install font-fira-code-nerd-font
+
