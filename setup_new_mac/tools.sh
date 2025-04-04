@@ -39,6 +39,7 @@ brew install pnpm
 brew install colima docker docker-compose docker-buildx direnv
 brew install kubectl
 brew install awscli
+brew install k9s
 
 # Other Apps
 brew install spotify
