@@ -75,7 +75,7 @@ function dt() {
 }
 
 function dtexec() {
-  container=$(docker ps -f name="duunitori5-dev-run" --format {{.ID}})
+  container=$(docker ps -f name="duunitori5-dev" --format {{.ID}})
   docker exec -it $container "$@"
 }
 
