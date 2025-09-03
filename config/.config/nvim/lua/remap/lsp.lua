@@ -20,10 +20,10 @@ Autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>cs", Builtin.lsp_document_symbols, { desc = "Code Symbols" })
 
     -- Diagnostics
-    vim.keymap.set("n", "[d", function()
+    vim.keymap.set("n", "]d", function()
       vim.diagnostic.goto_next()
     end, opts, { desc = "Next Diagnostics" })
-    vim.keymap.set("n", "]d", function()
+    vim.keymap.set("n", "[d", function()
       vim.diagnostic.goto_prev()
     end, opts, { desc = "Prev Diagnostics" })
 

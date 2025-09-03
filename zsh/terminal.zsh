@@ -3,6 +3,9 @@ export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
 
+# Env vars
+source $HOME/.env
+
 # Make a directory and cd into it
 function mkcd() {
   mkdir -p $1
@@ -90,4 +93,3 @@ function tp() {
     tmux swap-pane -s $2 -t $3
   fi
 }
-

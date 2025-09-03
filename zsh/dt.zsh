@@ -74,9 +74,16 @@ function dt() {
   tmux attach-session -t duunitori
 }
 
+function get_dt_container() {
+  echo $(docker ps -f name="duunitori5-dev" --format {{.ID}})
+}
+
+function dtconn() {
+  docker attach $(get_dt_container)
+}
+
 function dtexec() {
-  container=$(docker ps -f name="duunitori5-dev" --format {{.ID}})
-  docker exec -it $container "$@"
+  docker exec -it $(get_dt_container) "$@"
 }
 
 alias sdb="$HOME/dotfiles/session-db.sh"
