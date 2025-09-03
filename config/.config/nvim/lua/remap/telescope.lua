@@ -16,5 +16,6 @@ vim.keymap.set("n", "<leader>gt", Builtin.git_stash, { desc = "Git sTash" })
 
 
 -- Search
-vim.keymap.set("n", "<leader>ss", Builtin.live_grep, { desc = "Search" })
+vim.keymap.set("n", "<leader>ss", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = "Search" })
 vim.keymap.set("n", "<leader>sr", Builtin.resume, { desc = "Resume previous search" })

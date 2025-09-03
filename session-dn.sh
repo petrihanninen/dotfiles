@@ -18,12 +18,18 @@ if [ $? != 0 ]; then
   w=2
   tmux new-window -t $s:$w -n "server"
   tmux send-keys -t $s:$w "cd $path" C-m
-  tmux send-keys -t $s:$w "pnpm dev" C-m
+  tmux send-keys -t $s:$w "pnpm dev --force --filter=duunitori.fi --filter=jobbland.se --filter=jobbsafari.se" C-m
 
   # Shell
   w=3
   tmux new-window -t $s:$w -n "shell"
   tmux send-keys -t $s:$w "cd $path" C-m
+
+  # Ciam
+  w=4
+  tmux new-window -t $s:$w -n "ciam"
+  tmux send-keys -t $s:$w "cd $path" C-m
+  tmux send-keys -t $s:$w "pnpm dev --force --filter=ciam-ui" C-m
 fi
 
 tmux attach-session -t $s
