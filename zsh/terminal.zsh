@@ -80,6 +80,11 @@ function ts() {
   if [[ $1 == "k" ]]; then
     tmux kill-session -t $2
   fi
+
+  if [[ $1 == "n" ]]; then
+    tmux new-session -ds $2
+    tmux switch-client -t $2
+  fi
 }
 
 # Pane
@@ -93,3 +98,11 @@ function tp() {
     tmux swap-pane -s $2 -t $3
   fi
 }
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/petrihanninen/Desktop/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias claude='nvm use 22 && claude'
