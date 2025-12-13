@@ -1,0 +1,3 @@
+- Always use `pnpm` instead of `npm`
+- When encountering type errors, avoid using any or ignore. If you must use those, always ask before with an explanation of the situation and why it can't be properly typed
+- Never write comments
