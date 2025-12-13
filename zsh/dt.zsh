@@ -58,6 +58,11 @@ function grt() {
     git stash pop
   fi
 }
+
+function gbd() {
+  git branch --merged | grep -v "^\*\\|$(get_testing_branch)" | xargs -n 1 git branch -d
+}
+
 function dtt() {
   cdc
   tmux
