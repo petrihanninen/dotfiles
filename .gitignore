@@ -13,3 +13,4 @@ config/.config/gcloud
 htoprc
 
 config/.config/raycast/
+config/.config/github-copilot/
