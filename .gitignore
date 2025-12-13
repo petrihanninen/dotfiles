@@ -11,3 +11,5 @@ zsh/ignored.zsh
 config/.config/gcloud
 
 htoprc
+
+config/.config/raycast/
