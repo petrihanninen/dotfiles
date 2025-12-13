@@ -30,8 +30,7 @@ set writebackup
 set undodir=~/.vim/undodir
 set undofile
 
-# autocmd vimenter * ++nested colorscheme gruvbox
-# set background=dark
-# set colorcolumn=100
-# highlight ColorColumn ctermbg=0 guibg=lightgrey
+set background=dark
+set colorcolumn=100
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
