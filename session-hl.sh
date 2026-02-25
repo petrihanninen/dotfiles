@@ -1,7 +1,7 @@
-s="jobbland-frontend"
-path="$HOME/code/dt/jobbland-frontend"
+s="homelab"
+path="$HOME/code/personal/homelab"
 
-cd $path
+cd "$path"
 
 tmux has-session -t $s 2>/dev/null
 
@@ -24,10 +24,6 @@ if [ $? != 0 ]; then
   w=3
   tmux new-window -t $s:$w -n "srv"
   tmux send-keys -t $s:$w "cd $path" C-m
-  tmux send-keys -t $s:$w "npm run build-dev" C-m
-  tmux split-window -hvt $s:$w
-  tmux send-keys -t $s:$w "cd $path" C-m
-  tmux send-keys -t $s:$w "npm run run-dev" C-m
 
   # Shell
   w=4

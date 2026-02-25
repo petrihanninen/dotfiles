@@ -14,22 +14,29 @@ if [ $? != 0 ]; then
   tmux send-keys -t $s:$w "cd $path" C-m
   tmux send-keys -t $s:$w "v" C-m
 
-  # Servers
+  # Claude
   w=2
-  tmux new-window -t $s:$w -n "server"
+  tmux new-window -t $s:$w -n "claude"
+  tmux send-keys -t $s:$w "cd $path" C-m
+  tmux send-keys -t $s:$w "claude" C-m
+
+  # Servers
+  w=3
+  tmux new-window -t $s:$w -n "srv"
   tmux send-keys -t $s:$w "cd $path" C-m
   tmux send-keys -t $s:$w "pnpm dev --force --filter=duunitori.fi --filter=jobbland.se --filter=jobbsafari.se" C-m
-
-  # Shell
-  w=3
-  tmux new-window -t $s:$w -n "shell"
-  tmux send-keys -t $s:$w "cd $path" C-m
-
-  # Ciam
-  w=4
-  tmux new-window -t $s:$w -n "ciam"
+  tmux split-window -hvt $s:$w
   tmux send-keys -t $s:$w "cd $path" C-m
   tmux send-keys -t $s:$w "pnpm dev --force --filter=ciam-ui" C-m
+
+  # Shell
+  w=4
+  tmux new-window -t $s:$w -n "zsh"
+  tmux send-keys -t $s:$w "cd $path" C-m
 fi
 
-tmux attach-session -t $s
+if [ -n "$TMUX" ]; then
+  tmux switch-client -t $s
+else
+  tmux attach-session -t $s
+fi

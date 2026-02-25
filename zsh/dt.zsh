@@ -91,13 +91,11 @@ function dtexec() {
   docker exec -it $(get_dt_container) "$@"
 }
 
-alias sdb="$HOME/dotfiles/session-db.sh"
-alias sdk="$HOME/dotfiles/session-dk.sh"
 alias sdn="$HOME/dotfiles/session-dn.sh"
 alias sdot="$HOME/dotfiles/session-dot.sh"
 alias sdt="$HOME/dotfiles/session-dt.sh"
+alias shl="$HOME/dotfiles/session-hl.sh"
 alias sjl="$HOME/dotfiles/session-jl.sh"
-alias saoc="$HOME/dotfiles/session-aoc.sh"
 
 
 function dtignore() {
