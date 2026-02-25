@@ -109,3 +109,17 @@ function dtignore() {
     git update-index --skip-worktree docker/app/custom_settings.py
   fi
 }
+
+function dtpod() {
+  if [[ $1 == "p" ]]; then
+    kubectl config use-context dt-prod
+    kubectl exec -it $(kubectl get pods -l app=duunitori5-development-pod -n duunitori5 -o jsonpath='{.items[0].metadata.name}') -n duunitori5 -- /bin/bash
+  elif [[ $1 == "t" ]]; then
+    kubectl config use-context dt-test
+    kubectl exec -it $(kubectl get pods -l app=duunitori5-test-development-pod -n duunitori5 -o jsonpath='{.items[0].metadata.name}') -n duunitori5 -- /bin/bash
+  else
+    echo "Usage: dtpod [p|t]"
+  fi
+  
+}
+
