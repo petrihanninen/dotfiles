@@ -98,3 +98,14 @@ alias sdot="$HOME/dotfiles/session-dot.sh"
 alias sdt="$HOME/dotfiles/session-dt.sh"
 alias sjl="$HOME/dotfiles/session-jl.sh"
 alias saoc="$HOME/dotfiles/session-aoc.sh"
+
+
+function dtignore() {
+  if [[ $1 == "n" ]]; then
+    git update-index --no-skip-worktree compose.yml
+    git update-index --no-skip-worktree docker/app/custom_settings.py
+  else
+    git update-index --skip-worktree compose.yml
+    git update-index --skip-worktree docker/app/custom_settings.py
+  fi
+}
