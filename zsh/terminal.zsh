@@ -49,7 +49,6 @@ GITHUB_EDITOR=$EDITOR
 
 # Neovim aliases
 alias v="nvim . "
-alias vim="nvim "
 
 
 # Ngrok
@@ -104,3 +103,5 @@ if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
+
+alias c="claude "
