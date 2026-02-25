@@ -12,7 +12,7 @@ function aws_login() {
 	fi
 
 	mv -f $HOME/.aws/credentials.bak $HOME/.aws/credentials
-	creds_json="$(aws sts get-session-token --serial-number REDACTED_AWS_MFA_ARN --profile duunitori --token-code $code)"
+	creds_json="$(aws sts get-session-token --serial-number $AWS_MFA_ARN --profile duunitori --token-code $code)"
 	fields="$(jq '.Credentials | .AccessKeyId, .SecretAccessKey, .SessionToken' -r <<<"$creds_json")"
 	expiry="$(jq '.Credentials | .Expiration' -r <<<"$creds_json")"
 	output="$(sed -e '1 s/.*/aws_access_key_id = &/' -e '2 s/.*/aws_secret_access_key = &/' -e '3 s/.*/aws_session_token = &/' <<<"$fields")"

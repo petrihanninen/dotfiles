@@ -6,6 +6,7 @@
 .config/gh/hosts.yml
 
 zsh/ignored.zsh
+zsh/_ignored.zsh
 
 # Google Cloud crap
 config/.config/gcloud

@@ -28,6 +28,6 @@ function docker-clean-all() {
 }
 
 # Kubectl
-alias kp="kubectl config use-context REDACTED_EKS_PROD_ARN"
-alias kt="kubectl config use-context REDACTED_EKS_TEST_ARN"
+alias kp="kubectl config use-context $EKS_PROD_CONTEXT"
+alias kt="kubectl config use-context $EKS_TEST_CONTEXT"
 alias kc="kubectl config get-contexts"
