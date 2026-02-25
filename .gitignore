@@ -14,3 +14,4 @@ htoprc
 
 config/.config/raycast/
 config/.config/github-copilot/
+config/.config/sops/
