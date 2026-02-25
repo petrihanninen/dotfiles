@@ -118,3 +118,4 @@ esac
 # pnpm end
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+export PATH="$HOME/.local/bin:$PATH"
