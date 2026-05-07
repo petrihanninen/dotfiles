@@ -1,0 +1,19 @@
+
+[general]
+import = ["~/.config/alacritty/themes/themes/gruvbox.toml","/Users/petrihanninen/.config/alacritty/themes/everforest_light_medium.toml"]
+
+[font]
+size = 20
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+[window]
+option_as_alt = "OnlyLeft"
+
+[keyboard]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001b\r"

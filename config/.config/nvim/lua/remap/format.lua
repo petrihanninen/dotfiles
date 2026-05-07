@@ -28,7 +28,7 @@ Autocmd("BufWritePre", {
   desc = "Format code on save",
   callback = function()
     if not vim.b.disable_autoformat then
-      vim.lsp.buf.format()
+      require("conform").format({ async = false, lsp_format = "fallback" })
     end
   end,
 })

@@ -2,6 +2,8 @@
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
+# Fix sops missing key file
+export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
 
 # Env vars
 source $HOME/.env
@@ -105,3 +107,4 @@ if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '
 if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
 
 alias c="claude "
+alias cc="claude --dangerously-skip-permissions "

@@ -26,7 +26,6 @@
 
 ## Git
 - Always create a new branch for changes rather than committing to main
-- Never push commits automatically - I will push when ready
 - Commit messages: one line only, no co-authored-by or similar notes
 
 ## Self-Improvement

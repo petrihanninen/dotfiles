@@ -60,7 +60,15 @@ function grt() {
 }
 
 function gbd() {
-  git branch --merged | grep -v "^\*\\|$(get_testing_branch)" | xargs -n 1 git branch -d
+    git branch --merged | grep -v "^\*\\|^+\\|$(get_testing_branch)" | while read -r branch; do
+        # Check if branch is used by a worktree
+        wt=$(git worktree list | grep "\[${branch}\]" | awk '{print $1}')
+        if [ -n "$wt" ]; then
+            echo "Removing worktree for branch: $branch ($wt)"
+            git worktree remove "$wt"
+        fi
+        git branch -d "$branch"
+    done
 }
 
 function dtt() {
@@ -96,6 +104,7 @@ alias sdot="$HOME/dotfiles/session-dot.sh"
 alias sdt="$HOME/dotfiles/session-dt.sh"
 alias shl="$HOME/dotfiles/session-hl.sh"
 alias sjl="$HOME/dotfiles/session-jl.sh"
+alias sd="$HOME/dotfiles/session-d.sh"
 
 
 function dtignore() {
