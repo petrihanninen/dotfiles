@@ -31,7 +31,9 @@ Autocmd("LspAttach", {
     vim.keymap.set({ "n", "v" }, "<leader>ca", function()
       vim.lsp.buf.code_action()
     end, opts, { desc = "Code Actions" })
-    vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
+    vim.keymap.set("n", "<leader>cf", function()
+      require("conform").format({ async = false, timeout_ms = 5000, lsp_format = "fallback" })
+    end, { desc = "Code Format" })
     vim.keymap.set("n", "<leader>cF", ":FormatToggle<CR>", { desc = "Toggle format on save" })
 
     -- Misc
