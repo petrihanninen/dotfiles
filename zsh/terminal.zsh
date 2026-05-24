@@ -100,11 +100,11 @@ function tp() {
   fi
 }
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/petrihanninen/Desktop/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/petrihanninen/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
-
 alias c="claude "
 alias cc="claude --dangerously-skip-permissions "
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/petrihanninen/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/petrihanninen/code/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/petrihanninen/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/petrihanninen/code/google-cloud-sdk/completion.zsh.inc'; fi

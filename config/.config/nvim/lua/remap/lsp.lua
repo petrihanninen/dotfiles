@@ -39,11 +39,5 @@ Autocmd("LspAttach", {
     -- Misc
     vim.keymap.set("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Code Mason: open" })
     vim.keymap.set("n", "<leader>ci", "<cmd>LspInfo<CR>", { desc = "Code Info (LSP)" })
-
-    -- Some keymaps from primeagen to check out
-    -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts, { desc = "" })
-    -- vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts, { desc = "" })
-    -- vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts, { desc = "" })
-    -- vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts, { desc = "" })
   end,
 })
