@@ -6,6 +6,14 @@ return {
         ["htmldjango"] = { "djlint" },
         python = { "isort", "black" },
       },
+      formatters = {
+        black = {
+          prepend_args = { "--line-length", "160" },
+        },
+        isort = {
+          prepend_args = { "--line-length", "120" },
+        },
+      },
     },
   },
 }
