@@ -1,5 +1,4 @@
 return {
-  -- { "github/copilot.vim", }
   {
     "supermaven-inc/supermaven-nvim",
     config = function()

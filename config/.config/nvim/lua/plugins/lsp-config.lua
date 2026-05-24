@@ -64,10 +64,8 @@ return {
             capabilities = capabilities,
             settings = {
               pylsp = {
-                -- Pylsp is quite opinionated, just use black
-                -- (This is what Duunitori codebase uses, just match all that)
                 plugins = {
-                  black = { enabled = true },
+                  black = { enabled = false },
                   autopep8 = { enabled = false },
                   yapf = { enabled = false },
                   pylint = { enabled = false },

@@ -11,7 +11,7 @@ return {
           prepend_args = { "--line-length", "160" },
         },
         isort = {
-          prepend_args = { "--line-length", "120" },
+          prepend_args = { "--profile", "black", "--line-length", "120" },
         },
       },
     },

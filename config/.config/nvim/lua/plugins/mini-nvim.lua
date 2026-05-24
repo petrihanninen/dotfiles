@@ -1,6 +1,13 @@
 return {
+  "nvim-mini/mini.cmdline",
+  "nvim-mini/mini.comment",
+  "nvim-mini/mini.indentscope",
+  "nvim-mini/mini.pairs",
+  "nvim-mini/mini.statusline",
+  "nvim-mini/mini.surround",
+  "nvim-mini/mini.trailspace",
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     version = false,
     config = function()
       local ai = require("mini.ai")
