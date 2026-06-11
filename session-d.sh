@@ -12,7 +12,7 @@ if [ $? != 0 ]; then
 
   # duunitori5
   w=1
-  tmux rename-window -t $s:$w "nvim"
+  tmux rename-window -t $s:$w "dt5"
   tmux send-keys -t $s:$w "cd $dpath" C-m
   tmux send-keys -t $s:$w "v" C-m
   tmux split-window -ht $s:$w
@@ -21,7 +21,7 @@ if [ $? != 0 ]; then
 
   # duunitori-next
   w=2
-  tmux rename-window -t $s:$w "nvim"
+  tmux new-window -t $s:$w -n "next"
   tmux send-keys -t $s:$w "cd $npath" C-m
   tmux send-keys -t $s:$w "v" C-m
   tmux split-window -ht $s:$w
@@ -37,7 +37,7 @@ if [ $? != 0 ]; then
   # duunitori-next
   tmux split-window -ht $s:$w
   tmux send-keys -t $s:$w "cd $npath" C-m
-  tmux send-keys -t $s:$w "pnpm dev --force --filter=duunitori.fi --filter=jobbland.se --filter=jobbsafari.se" C-m
+  tmux send-keys -t $s:$w "pnpm dev --force --filter=duunitori.fi --filter=jobbsafari.se" C-m
   # ciam
   tmux split-window -vt $s:$w
   tmux send-keys -t $s:$w "cd $npath" C-m

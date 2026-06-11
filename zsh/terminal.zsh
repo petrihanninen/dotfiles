@@ -61,6 +61,9 @@ fi
 # Rust
 export PATH="$PATH:/Users/petrihanninen/.cargo/bin"
 
+# Node
+export PATH="$PATH:/Users/petrihanninen/Library/pnpm/bin"
+
 # Toggle dark/light mode
 tl() {
   sed -i '' "1s/.*/import = [\"~\/.config\/alacritty\/themes\/themes\/gruvbox_material_hard_light.toml\"]/" $HOME/dotfiles/config/.alacritty.toml
