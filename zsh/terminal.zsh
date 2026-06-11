@@ -5,8 +5,8 @@ export LC_ALL='en_US.UTF-8'
 # Fix sops missing key file
 export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
 
-# Env vars
-source $HOME/.env
+# Env vars (machine/work-specific, optional)
+[ -f "$HOME/.env" ] && source "$HOME/.env"
 
 # Make a directory and cd into it
 function mkcd() {

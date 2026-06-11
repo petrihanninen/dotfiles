@@ -66,6 +66,13 @@ for f in $HOME/dotfiles/zsh/*.zsh; do
   z4h source $f
 done
 
+# Source machine/work-specific zsh files (e.g. dt-dotfiles for Duunitori).
+if [ -d "$HOME/dt-dotfiles/zsh" ]; then
+  for f in $HOME/dt-dotfiles/zsh/*.zsh; do
+    z4h source $f
+  done
+fi
+
 # Use additional Git repositories pulled in with `z4h install`.
 #
 # This is just an example that you should delete. It does nothing useful.
