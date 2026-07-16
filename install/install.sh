@@ -147,6 +147,16 @@ else
     echo "==> Installing pnpm via official script"
     curl -fsSL https://get.pnpm.io/install.sh | sh - || true
   fi
+  # nvm installs no Node by default; pull the current LTS so node/npm exist
+  # (Mason needs npm to install npm-based language servers such as ts_ls).
+  export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+  if [ -s "$NVM_DIR/nvm.sh" ]; then
+    . "$NVM_DIR/nvm.sh"
+    if ! nvm which default >/dev/null 2>&1; then
+      echo "==> Installing Node LTS via nvm"
+      nvm install --lts || true
+    fi
+  fi
 fi
 
 # Neovim: brew ships the latest release, but Linux distro packages lag well
