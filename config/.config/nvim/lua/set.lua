@@ -42,6 +42,11 @@ vim.opt.wildmode = "list:longest"
 vim.opt.list = true
 vim.opt.listchars = "leadmultispace:| ,tab:| "
 
+-- Providers (unused; disabled to silence checkhealth warnings)
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+
 -- Misc
 vim.opt.history = 1000
 vim.opt.spell = false
