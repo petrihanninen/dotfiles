@@ -90,7 +90,7 @@ CLI_TOOLS=(
   "gnupg"
   "lazygit            apt=-"
   "tmux"
-  "neovim"
+  "neovim            apt=- dnf=- pacman=-"
   "direnv"
   "bat                apt=batcat"
   "go                 apt=golang-go dnf=golang"
@@ -145,6 +145,32 @@ else
   if ! command -v pnpm >/dev/null 2>&1; then
     echo "==> Installing pnpm via official script"
     curl -fsSL https://get.pnpm.io/install.sh | sh - || true
+  fi
+fi
+
+# Neovim: brew ships the latest release, but Linux distro packages lag well
+# behind, so pull the official stable release tarball on Linux.
+if [ "$PM" != "brew" ]; then
+  case "$(uname -m)" in
+    x86_64|amd64)  NVIM_ARCH="x86_64" ;;
+    aarch64|arm64) NVIM_ARCH="arm64" ;;
+    *)             NVIM_ARCH="" ;;
+  esac
+  if [ -z "$NVIM_ARCH" ]; then
+    echo "==> Skipping neovim: unsupported arch $(uname -m)"
+  else
+    echo "==> Installing neovim from official stable release"
+    NVIM_TMP="$(mktemp -d)"
+    NVIM_URL="https://github.com/neovim/neovim/releases/download/stable/nvim-linux-${NVIM_ARCH}.tar.gz"
+    if curl -fsSL "$NVIM_URL" -o "$NVIM_TMP/nvim.tar.gz"; then
+      sudo rm -rf /opt/nvim
+      sudo mkdir -p /opt/nvim
+      sudo tar -xzf "$NVIM_TMP/nvim.tar.gz" -C /opt/nvim --strip-components=1
+      sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
+    else
+      echo "    (download failed; continuing)"
+    fi
+    rm -rf "$NVIM_TMP"
   fi
 fi
 
