@@ -61,7 +61,10 @@ path=(~/bin $path)
 # Export environment variables.
 export GPG_TTY=$TTY
 
-# Source additional local files if they exist.
+# Source shared, cross-shell config (aliases, functions, PATH, platform shims).
+z4h source $HOME/dotfiles/shell/index.sh
+
+# Source zsh-only additions (e.g. the .nvmrc auto-switch hook).
 for f in $HOME/dotfiles/zsh/*.zsh; do
   z4h source $f
 done
@@ -108,21 +111,6 @@ alias ls="${aliases[ls]:-ls} -A"
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
-eval "$(direnv hook zsh)"
-eval "$(direnv hook zsh)"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bas_competion.d/nvm" ] && "/usr/local/opt/nvm/etc/bas_competion.d/nvm" 
-
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-export PATH="$HOME/.local/bin:$PATH"
+# NVM, pnpm, gvm, cargo, gcloud, direnv, PATH additions and platform shims are
+# all handled by the shared config in ~/dotfiles/shell/ (sourced above).
+# direnv for zsh is enabled via the z4h zstyle near the top of this file.

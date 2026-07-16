@@ -1,3 +1,5 @@
+# shell/git.sh — git aliases and helpers (bash + zsh).
+
 alias g="git "
 alias gs="g status "
 
@@ -40,32 +42,32 @@ alias gp="g push "
 alias gpl="g pull "
 alias gpu="g push -u origin HEAD "
 alias gpf="g push --force-with-lease "
-function gcl() {
-  g clone git@github.com:$1
-  cd $1
+gcl() {
+  git clone "git@github.com:$1"
+  cd "$(basename "${1%.git}")" || return
 }
 
 # Interactive Rebase
-function gri() {
+gri() {
   # Default to HEAD^^
-  if [ $# -eq 0]; then
+  if [ $# -eq 0 ]; then
     gr -i HEAD^^
   # With a number given, rebase that many commits
-  elif [ $1 -eq $1 2> /dev/null ]; then
-    git rebase -i HEAD~$1
+  elif [ "$1" -eq "$1" ] 2>/dev/null; then
+    git rebase -i "HEAD~$1"
   else
-    git rebase -i $1
+    git rebase -i "$1"
   fi
 }
 
 alias gcopr="gh pr checkout "
 
-function pr() {
+pr() {
   gpu
   gh pr create
 }
 
-function gcop() {
+gcop() {
   gpl
   gco "$(pbpaste)"
   gpl

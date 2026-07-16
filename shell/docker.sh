@@ -1,15 +1,16 @@
+# shell/docker.sh — Docker, Colima and Kubernetes helpers (bash + zsh).
+
 # Docker ps
 alias dp="docker ps --format \"table {{.Names}}\t{{.Status}}\""
 alias dpp="docker ps --format \"table {{.Names}}\t{{.Status}}\t{{.Ports}}\""
 alias dps="docker ps"
 
-# Docker running
+# Docker compose
 alias dc="docker-compose"
 alias dcu="docker-compose up -d"
 alias dcua="docker-compose up"
 
-
-# Colima
+# Colima (macOS Docker runtime; harmless if not installed)
 alias clm="colima "
 alias clms="clm start "
 alias clmss="clms --memory 8 "
@@ -17,14 +18,13 @@ alias clmsp="clm stop "
 alias clmsf="clmsp --force "
 alias clmr="clm restart "
 
-
 # Clean everything
-function docker-clean-all() {
-  docker stop `docker ps -qa` > /dev/null
-  docker rm `docker ps -qa` > /dev/null
-  docker rm -f `docker images -qa` > /dev/null
-  docker volume rm $(docker volume ls -q) > /dev/null
-  docker network rm `docker network ls -q` > /dev/null
+docker-clean-all() {
+  docker stop $(docker ps -qa) >/dev/null
+  docker rm $(docker ps -qa) >/dev/null
+  docker rm -f $(docker images -qa) >/dev/null
+  docker volume rm $(docker volume ls -q) >/dev/null
+  docker network rm $(docker network ls -q) >/dev/null
 }
 
 # Kubectl

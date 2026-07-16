@@ -41,3 +41,15 @@ for sub in "$SRC/.config"/*; do
   ln -sfn "$sub" "$HOME/.config/$name"
   echo "link: $HOME/.config/$name -> $sub"
 done
+
+# Wire the shared shell config into ~/.bashrc. Bash's rc file isn't symlinked
+# (the distro ships a useful default we don't want to clobber), so append an
+# idempotent include instead.
+bashrc="$HOME/.bashrc"
+if [ -f "$bashrc" ] && ! grep -qF 'dotfiles/shell/index.sh' "$bashrc"; then
+  {
+    printf '\n# --- dotfiles: shared shell config ---\n'
+    printf '%s\n' '[ -f "$HOME/dotfiles/shell/index.sh" ] && . "$HOME/dotfiles/shell/index.sh"'
+  } >>"$bashrc"
+  echo "bashrc: added shared shell include"
+fi
