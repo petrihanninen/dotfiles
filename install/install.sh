@@ -91,6 +91,7 @@ CLI_TOOLS=(
   "lazygit            apt=-"
   "tmux"
   "neovim            apt=- dnf=- pacman=-"
+  "tree-sitter       apt=- dnf=- pacman=-"
   "direnv"
   "bat                apt=batcat"
   "go                 apt=golang-go dnf=golang"
@@ -171,6 +172,30 @@ if [ "$PM" != "brew" ]; then
       echo "    (download failed; continuing)"
     fi
     rm -rf "$NVIM_TMP"
+  fi
+fi
+
+# tree-sitter CLI: required by nvim-treesitter (main branch) to compile parsers.
+# brew ships it; on Linux pull the prebuilt binary from the latest release.
+if [ "$PM" != "brew" ]; then
+  case "$(uname -m)" in
+    x86_64|amd64)  TS_ARCH="x64" ;;
+    aarch64|arm64) TS_ARCH="arm64" ;;
+    *)             TS_ARCH="" ;;
+  esac
+  if [ -z "$TS_ARCH" ]; then
+    echo "==> Skipping tree-sitter: unsupported arch $(uname -m)"
+  else
+    echo "==> Installing tree-sitter CLI from official release"
+    TS_TMP="$(mktemp -d)"
+    TS_URL="https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-${TS_ARCH}.gz"
+    if curl -fsSL "$TS_URL" -o "$TS_TMP/ts.gz"; then
+      gunzip "$TS_TMP/ts.gz"
+      sudo install -m 0755 "$TS_TMP/ts" /usr/local/bin/tree-sitter
+    else
+      echo "    (download failed; continuing)"
+    fi
+    rm -rf "$TS_TMP"
   fi
 fi
 
