@@ -11,5 +11,11 @@ Autocmd("filetype", {
     bind("r", "R", { desc = "Rename file" })
     bind("<Backspace>", "-", { desc = "Go up dir" })
     bind("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Chmod +x" })
+
+    vim.keymap.set("n", "<C-l>", "<cmd>NvimTmuxNavigateRight<CR>", {
+      buffer = true,
+      silent = true,
+      desc = "Tmux navigate right",
+    })
   end,
 })
