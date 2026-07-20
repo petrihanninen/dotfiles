@@ -6,7 +6,10 @@ CLAUDE.local.md
 .aws/credentials
 .config/gh/hosts.yml
 
-# Google Cloud crap
+zsh/ignored.zsh
+zsh/_ignored.zsh
+
+config/.config/gh/hosts.yml
 config/.config/gcloud
 
 htoprc
