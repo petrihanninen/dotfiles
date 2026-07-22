@@ -55,6 +55,11 @@ td() {
   sedi "1s|.*|import = [\"~/.config/alacritty/themes/themes/gruvbox.toml\"]|" "$HOME/dotfiles/config/.alacritty.toml"
 }
 
+# Attach to a tmux session, creating it first if needed (default name: main)
+tt() {
+  tmux new-session -A -s "${1:-main}"
+}
+
 # Tmux session helper
 ts() {
   if [ $# -eq 0 ]; then
