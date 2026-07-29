@@ -104,16 +104,17 @@ aws_login() {
 		fi
 	fi
 
-	mv -f $HOME/.aws/credentials.bak $HOME/.aws/credentials
-	creds_json="$(aws sts get-session-token --serial-number $AWS_MFA_ARN --profile duunitori --token-code $code)"
-	fields="$(jq '.Credentials | .AccessKeyId, .SecretAccessKey, .SessionToken' -r <<<"$creds_json")"
-	expiry="$(jq '.Credentials | .Expiration' -r <<<"$creds_json")"
-	output="$(sed -e '1 s/.*/aws_access_key_id = &/' -e '2 s/.*/aws_secret_access_key = &/' -e '3 s/.*/aws_session_token = &/' <<<"$fields")"
-	mv $HOME/.aws/credentials $HOME/.aws/credentials.bak
-	echo "[default]" >> $HOME/.aws/credentials
-	echo "$output" >> $HOME/.aws/credentials
-	echo >> $HOME/.aws/credentials
-	echo "[duunitori]" >> $HOME/.aws/credentials
-	echo "$output" >> $HOME/.aws/credentials
+	creds_json="$(aws sts get-session-token --serial-number $AWS_MFA_ARN --profile duunitori-long-term --token-code $code)" || return 1
+	key_id="$(jq -r '.Credentials.AccessKeyId' <<<"$creds_json")"
+	secret="$(jq -r '.Credentials.SecretAccessKey' <<<"$creds_json")"
+	token="$(jq -r '.Credentials.SessionToken' <<<"$creds_json")"
+	expiry="$(jq -r '.Credentials.Expiration' <<<"$creds_json")"
+
+	for profile in default duunitori
+	do
+		aws configure set aws_access_key_id "$key_id" --profile "$profile"
+		aws configure set aws_secret_access_key "$secret" --profile "$profile"
+		aws configure set aws_session_token "$token" --profile "$profile"
+	done
 	echo "session expires at $expiry"
 }
