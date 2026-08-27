@@ -88,6 +88,7 @@ tp() {
 
 # Claude Code
 alias c="claude "
+alias cc="claude --effort low -p --model sonnet --dangerously-skip-permissions"
 
 # AWS
 aws_login() {

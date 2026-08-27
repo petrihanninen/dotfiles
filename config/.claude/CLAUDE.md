@@ -2,6 +2,7 @@
 - Begin every message with ✨
 - Keep explanations brief
 - Use Vim keybinding references when discussing editor shortcuts
+- Always work within git worktrees, do not mess with local working directory
 
 ## Code Style
 - Prefer functional programming over object-oriented
